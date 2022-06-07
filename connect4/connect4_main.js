@@ -25,7 +25,10 @@ function whoseTurn() {
 }
 
 // Fuction to take turn         
-// NEEDS TO CHANGE FOR PIECES DROPPING. ONLY INPUT COLUMN?
+// NEEDS TO CHANGE FOR PIECES DROPPING.
+// only column parameter returns invalid move.
+// only row parameter returns invalid move.
+
 function takeTurn(row, column) {
     console.log("function takeTurn was called")
     if (playArea[row][column] === null && player1 === true) {
@@ -42,6 +45,24 @@ function takeTurn(row, column) {
             }
 Turn.innerText = whoseTurn()
 }
+
+// unedited function places counter where click is placed
+// function takeTurn(row, column) {
+//     console.log("function takeTurn was called")
+//     if (playArea[row][column] === null && player1 === true) {
+//         playArea[row][column] = "orange"
+//         player1 = false
+//         // console.log(yellowText)
+//     }   else if (playArea[row][column] === null) { 
+//             playArea[row][column] = "green"
+//             player1 = true
+//             // console.log(redText)
+//         }   else {
+//                 alert("This is an invalid move! Try again.")
+//                 console.log("Invalid move request")
+//             }
+// Turn.innerText = whoseTurn()
+// }
 
 function getPlayArea() {
     console.log("getPlayArea was called")
