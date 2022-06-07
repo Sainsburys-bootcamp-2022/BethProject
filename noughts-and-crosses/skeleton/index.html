@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Noughts & Crosses</title>
+  <meta content="text/html; charset=utf-8"
+        http-equiv="content-type">
+  <link href="main.css"
+        rel="stylesheet"
+        type="text/css">
+</head>
+<body>
+  <h1>Noughts & Crosses</h1>
+  <div>
+       <! Section to insert player names if wanted >
+       <! <p class="Player" Player 1 - <input type="text" </p>
+       <! <p class="Player" Player 2 - <input type="text" </p>
+  </div>
+  <br>
+  
+  <! Use following line with JS to pull an ID into variable to display turn >
+  <p> It's <span id="whoseTurn"> </span> Turn! </p>
+
+  <p id="winner-display">The winner is <span id="winner-name"></span></p>
+  <div id="grid">
+    <div class="row"
+         id="row-0">
+      <div class="column"
+           id="row-0-column-0"></div>
+      <div class="column"
+           id="row-0-column-1"></div>
+      <div class="column"
+           id="row-0-column-2"></div>
+    </div>
+    <div class="row"
+         id="row-1">
+      <div class="column"
+           id="row-1-column-0"></div>
+      <div class="column"
+           id="row-1-column-1"></div>
+      <div class="column"
+           id="row-1-column-2"></div>
+    </div>
+    <div class="row"
+         id="row-2">
+      <div class="column"
+           id="row-2-column-0"></div>
+      <div class="column"
+           id="row-2-column-1"></div>
+      <div class="column"
+           id="row-2-column-2"></div>
+    </div>
+  </div>
+  <button id="reset-button">Reset Game</button>
+  <p>Remember to open your dev tools by pressing F12 to view log messages and errors!</p>
+  <script src="academy.js"
+        type="text/javascript"></script> 
+  <script src="connectors.js"
+        type="text/javascript"></script>
+</body>
+</html>

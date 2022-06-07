@@ -1,0 +1,47 @@
+body {
+    text-align: center;
+    font-family: Lucinda Sans;
+    color: rgb(213, 139, 2);
+    background-color: rgb(120, 31, 96);
+}
+
+.column {
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    border: 3px inset rgb(213, 139, 2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+}
+
+.row {
+    width: 400px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.marker {
+    width: 80px;
+    height: 80px;
+}
+
+#winner-display {
+    display: none;
+    background-color: whitesmoke;
+    color: rgb(213, 139, 2);
+}
+
+#reset-button{
+    margin-top: 10px;
+    background-color: whitesmoke;
+    color: rgb(120, 31, 96);
+    font-style: italic;
+    font-size: medium;
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    border-radius: 15px;
+}

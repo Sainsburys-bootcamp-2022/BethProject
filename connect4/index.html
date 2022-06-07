@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Connect 4 </title>
+        <link   href = "main.css"
+                rel = "stylesheet"
+                type = "text/css"
+        >
+    </head>
+    <body>
+        <h1>Let's play CONNECT 4</h1>
+        <div> <! Player selection>
+            <! insert section for player names?>
+        </div>
+        <div> <! whoseTurn text>
+            <p> <span id = "whoseTurn"> </span> it's your turn! </p>
+        </div>
+    <br>
+    <p id = "winDisp"> Congratulations <span id = "winner"> </span>, you have won! </p>
+        <div> <! playArea
+            <div id = "grid">
+                <div    class = "row"
+                        id = "row0">
+                    <div class="column"
+                        id="row-0-column-0"></div>
+                    <div class="column"
+                        id="row-0-column-1"></div>
+                    <div class="column"
+                        id="row-0-column-2"></div>
+                    <div class="column"
+                        id="row-0-column-3"></div>
+                    <div class="column"
+                        id="row-0-column-4"></div>
+                    <div class="column"
+                        id="row-0-column-5"></div>
+                    <div class="column"
+                        id="row-0-column-6"></div>
+                </div>
+                <div    class = "row"
+                        id = "row1">
+                    <div class="column"
+                        id="row-1-column-0"></div>
+                    <div class="column"
+                        id="row-1-column-1"></div>
+                    <div class="column"
+                        id="row-1-column-2"></div>
+                    <div class="column"
+                        id="row-1-column-3"></div>
+                    <div class="column"
+                        id="row-1-column-4"></div>
+                    <div class="column"
+                        id="row-1-column-5"></div>
+                    <div class="column"
+                        id="row-1-column-6"></div>
+                </div>
+                <div    class = "row"
+                        id = "row2">
+                    <div class="column"
+                        id="row-2-column-0"></div>
+                    <div class="column"
+                        id="row-2-column-1"></div>
+                    <div class="column"
+                        id="row-2-column-2"></div>
+                    <div class="column"
+                        id="row-2-column-3"></div>
+                    <div class="column"
+                        id="row-2-column-4"></div>
+                    <div class="column"
+                        id="row-2-column-5"></div>
+                    <div class="column"
+                        id="row-2-column-6"></div>
+                </div>
+                <div    class = "row"
+                        id = "row3">
+                    <div class="column"
+                        id="row-3-column-0"></div>
+                    <div class="column"
+                        id="row-3-column-1"></div>
+                    <div class="column"
+                        id="row-3-column-2"></div>
+                    <div class="column"
+                        id="row-3-column-3"></div>
+                    <div class="column"
+                       id="row-3-column-4"></div>
+                    <div class="column"
+                        id="row-3-column-5"></div>
+                    <div class="column"
+                        id="row-3-column-6"></div>
+                </div>
+                <div    class = "row"
+                        id = "row4">
+                    <div class="column"
+                        id="row-4-column-0"></div>
+                    <div class="column"
+                        id="row-4-column-1"></div>
+                    <div class="column"
+                        id="row-4-column-2"></div>
+                    <div class="column"
+                        id="row-4-column-3"></div>
+                    <div class="column"
+                        id="row-4-column-4"></div>
+                    <div class="column"
+                        id="row-4-column-5"></div>
+                    <div class="column"
+                        id="row-4-column-6"></div>
+                </div>
+                <div    class = "row"
+                        id = "row5">
+                    <div class="column"
+                        id="row-5-column-0"></div>
+                    <div class="column"
+                        id="row-5-column-1"></div>
+                    <div class="column"
+                        id="row-5-column-2"></div>
+                    <div class="column"
+                        id="row-5-column-3"></div>
+                    <div class="column"
+                        id="row-5-column-4"></div>
+                    <div class="column"
+                        id="row-5-column-5"></div>
+                    <div class="column"
+                        id="row-5-column-6"></div>
+                </div>
+            </div>
+        </div>
+    <br>
+    <div class = "counters">
+        <image id = "greenCounter" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAADQCAMAAAAK0syrAAAAA1BMVEUA/wA0XsCoAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC8GxXAAARccfysAAAAASUVORK5CYII="></image>
+        <image id = "orangeCounter" src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAADICAMAAAA9W+hXAAAAA1BMVEX/lgA++SSrAAAANElEQVR4nO3BMQEAAADCoPVP7WsIoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeAN1+AABVhDU2QAAAABJRU5ErkJggg=="></image>
+    </div>
+    <button id = "reset-button"> Reset Game</button>
+    <script src = "connect4_main.js">
+        type = "text/javascript"
+    </script>
+    </body>
+</html>
