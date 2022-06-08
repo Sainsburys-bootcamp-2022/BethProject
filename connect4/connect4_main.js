@@ -15,46 +15,46 @@ const orangeCounter = document.getElementById("orangeCounter")
 const greenText = "Green"
 const greenCounter = document.getElementById("greenCounter")
 const Turn = document.getElementById("whoseTurn")
-    Turn.innerText = whoseTurn()
+Turn.innerText = whoseTurn()
 
 // Functions
 
 // Text to say whose turn;
 function whoseTurn() {
-    return player1 === true ? orangeText: greenText;
+    return player1 === true ? orangeText : greenText;
 }
 
+//Places counter at the bottom of the column
 const counterPlace = (column, playArea) => {
-    for( let i = playArea.length; i>0; i--) {
-        if (playArea[i-1][column] === null) {
-            return i-1
+    for (let i = playArea.length; i > 0; i--) {
+        if (playArea[i - 1][column] === null) {
+            return i - 1
         }
     }
 }
 
 // Fuction to take turn         
-
 function takeTurn(column) {
-    const row = counterPlace(column, playArea) 
+    const row = counterPlace(column, playArea)
+    console.log(row)
     console.log("function takeTurn was called")
     if (playArea[row][column] === null && player1 === true) {
         playArea[row][column] = "orange"
         player1 = false
-        // console.log(yellowText)
-    }   else if (playArea[row][column] === null) { 
-            playArea[row][column] = "green"
-            player1 = true
-            // console.log(redText)
-        }   else {
-                alert("This is an invalid move! Try again.")
-                console.log("Invalid move request")
-            }
-Turn.innerText = whoseTurn()
+    } else if (playArea[row][column] === null) {
+        playArea[row][column] = "green"
+        player1 = true
+    } else { // This alert is not working, comes back with;
+        // "Uncaught TypeError: Cannot read properties of undefined (reading '[coulmn]')"
+        alert("This is an invalid move! Try again.")
+        console.log("Invalid move request")
+    }
+    Turn.innerText = whoseTurn()
 }
 
 function getPlayArea() {
     console.log("getPlayArea was called")
-        return playArea
+    return playArea
 }
 
 // Clears the playArea Array
@@ -81,25 +81,26 @@ function drawBoard(playArea) {
     }
 }
 
-// function isValidRowOrColumn(array) {
-//     console.log("This is array", array)
-//     return Array.isArray(array);  // or 7?
-// }
+// Function to check for a winner   
+// WRITE A FUNCTION THAT CHECKS FOR 4 IN A ROW
+// function checkWinner()
+// ref to id = "winDisp" to make it show when winner detected.
+// ref to id = "winner" to display winner in winDisp
 
-// function isValidColumn(columnArray) {
-//     console.log("this is column array", columnArray)
-//     return isValidRowOrColumn(columnArray) && columnArray.every(function (item) { return ["orange", "green", null].includes(item); });
+// horizontal
+// const row = counterPlace(column, playArea)
+// for (let column = 0; column>3; column++) {
+//     if (playArea[])
+//     const element = array[index];
+
 // }
 
 // A grid position was clicked
 function positionClick(columnIndex, event) {
     takeTurn(columnIndex);
     const board = getPlayArea();
-    // if (!isValidRowOrColumn(board) || !board.every(isValidColumn)) {
-    //     throw "Expecting 'getBoard' to return a 2d array where all values match are null or string. Actually received: " + JSON.stringify(playArea);
-    // }
     drawBoard(playArea);
-        // UNCOMMENT WHEN checkWinner function is complete
+    // UNCOMMENT WHEN checkWinner function is complete
     // const winner = checkWinner();
     // if (winner) {
     //     if (typeof winner !== "string" || !["orange", "green", "nobody"].includes(winner)) {
@@ -123,28 +124,19 @@ for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
 // Function reset game to start
 function resetGame() {
     console.log("function resetGame was called")
-        return playArea = [
-            [null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null],
-            [null, null, null, null, null, null, null]
-        ]
+    return playArea = [
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null]
+    ]
 }
-
-// Function to check for a winner   
-// WRITE A FUNCTION THAT CHECKS FOR 4 IN A ROW
-        // function checkWinner()
-
-// ref to id = "winDisp"
-// ref to id = "winner"
-
-// ref to id = "grid" => in html?
 
 function resetClick(event) {
     resetGame();
-        // UNCOMMENT WHEN checkWinner function is complete
+    // UNCOMMENT WHEN checkWinner function is complete
     // const winnerName = document.getElementById("winner-name");
     // winnerName.innerText = "";
     // const winnerDisplay = document.getElementById("winner-display");

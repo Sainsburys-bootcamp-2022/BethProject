@@ -44,7 +44,8 @@ h1 {
 #winDisp {
     display: none;
     background-color: whitesmoke;
-    color:rgb(213, 139, 2)
+    color:rgb(213, 139, 2);
+    font-family: Impact;
 }
 
 #reset-button {
