@@ -24,12 +24,18 @@ function whoseTurn() {
     return player1 === true ? orangeText: greenText;
 }
 
-// Fuction to take turn         
-// NEEDS TO CHANGE FOR PIECES DROPPING.
-// only column parameter returns invalid move.
-// only row parameter returns invalid move.
+const counterPlace = (column, playArea) => {
+    for( let i = playArea.length; i>0; i--) {
+        if (playArea[i-1][column] === null) {
+            return i-1
+        }
+    }
+}
 
-function takeTurn(row, column) {
+// Fuction to take turn         
+
+function takeTurn(column) {
+    const row = counterPlace(column, playArea) 
     console.log("function takeTurn was called")
     if (playArea[row][column] === null && player1 === true) {
         playArea[row][column] = "orange"
@@ -45,24 +51,6 @@ function takeTurn(row, column) {
             }
 Turn.innerText = whoseTurn()
 }
-
-// unedited function places counter where click is placed
-// function takeTurn(row, column) {
-//     console.log("function takeTurn was called")
-//     if (playArea[row][column] === null && player1 === true) {
-//         playArea[row][column] = "orange"
-//         player1 = false
-//         // console.log(yellowText)
-//     }   else if (playArea[row][column] === null) { 
-//             playArea[row][column] = "green"
-//             player1 = true
-//             // console.log(redText)
-//         }   else {
-//                 alert("This is an invalid move! Try again.")
-//                 console.log("Invalid move request")
-//             }
-// Turn.innerText = whoseTurn()
-// }
 
 function getPlayArea() {
     console.log("getPlayArea was called")
@@ -104,8 +92,8 @@ function drawBoard(playArea) {
 // }
 
 // A grid position was clicked
-function positionClick(rowIndex, columnIndex, event) {
-    takeTurn(rowIndex, columnIndex);
+function positionClick(columnIndex, event) {
+    takeTurn(columnIndex);
     const board = getPlayArea();
     // if (!isValidRowOrColumn(board) || !board.every(isValidColumn)) {
     //     throw "Expecting 'getBoard' to return a 2d array where all values match are null or string. Actually received: " + JSON.stringify(playArea);
@@ -128,7 +116,7 @@ function positionClick(rowIndex, columnIndex, event) {
 for (let rowIndex = 0; rowIndex < 6; rowIndex++) {
     for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
         const gridPosition = document.getElementById(`row-${rowIndex}-column-${columnIndex}`);
-        gridPosition.addEventListener("click", positionClick.bind(null, rowIndex, columnIndex));
+        gridPosition.addEventListener("click", positionClick.bind(null, columnIndex));
     }
 }
 
