@@ -38,18 +38,19 @@ function takeTurn(column) {
     const row = counterPlace(column, playArea)
     console.log(row)
     console.log("function takeTurn was called")
-    if (playArea[row][column] === null && player1 === true) {
+    if (playArea[row] === undefined) {
+        alert("This is an invalid move! Try again.")
+        console.log("Invalid move request")
+    } else if (playArea[row][column] === null && player1 === true) {
         playArea[row][column] = "orange"
         player1 = false
     } else if (playArea[row][column] === null) {
         playArea[row][column] = "green"
         player1 = true
-    } else { // This alert is not working, comes back with;
-        // "Uncaught TypeError: Cannot read properties of undefined (reading '[coulmn]')"
-        alert("This is an invalid move! Try again.")
-        console.log("Invalid move request")
     }
     Turn.innerText = whoseTurn()
+    console.log(playArea)
+    checkWinner()
 }
 
 function getPlayArea() {
@@ -83,16 +84,77 @@ function drawBoard(playArea) {
 
 // Function to check for a winner   
 // WRITE A FUNCTION THAT CHECKS FOR 4 IN A ROW
-// function checkWinner()
+function checkWinner() {
+    // horizontalWin() // WORKING
+    // verticalWin() // WORKING
+    // diagonalRightWin() // WORKING
+    diagonalLeftWin()
+}
 // ref to id = "winDisp" to make it show when winner detected.
 // ref to id = "winner" to display winner in winDisp
 
-// horizontal
-// const row = counterPlace(column, playArea)
-// for (let column = 0; column>3; column++) {
-//     if (playArea[])
-//     const element = array[index];
+function horizontalWin() {
+    console.log("checking for horizontal win")
+    for (let row = 0; row < 6; row++) {
+        for (let i = 0; i < 4; i++) {
+            if (
+                (playArea[row][i] !== null)
+                && (playArea[row][i] === playArea[row][i + 1])
+                && (playArea[row][i + 1] === playArea[row][i + 2])
+                && (playArea[row][i + 2] === playArea[row][i + 3])
+            ) console.log("horizontal win detected")
+        }
+    }
+}
 
+function verticalWin() {
+    for (let row = 5; row >= 3; row--) {
+        for (let i = 0; i < 4; i++) {
+            if (
+                (playArea[row][i] !== null)
+                && (playArea[row][i] === playArea[row - 1][i])
+                && (playArea[row - 1][i] === playArea[row - 2][i])
+                && (playArea[row - 2][i] === playArea[row - 3][i])
+            ) console.log("vertical win detected")
+        }
+    }
+}
+
+function diagonalRightWin() {
+    for (let row = 5; row >= 3; row--) {
+        for (let i = 0; i < 4; i++) {
+            if (
+                (playArea[row][i] !== null)
+                && (playArea[row][i] === playArea[row - 1][i + 1])
+                && (playArea[row - 1][i + 1] === playArea[row - 2][i + 2])
+                && (playArea[row - 2][i + 2] === playArea[row - 3][i + 3])
+            ) console.log("right diagonal win detected")
+        }
+    }
+}
+
+function diagonalLeftWin() {
+    for
+}
+
+// function checks both diagonals?
+// function diagonalWin() {
+//     for (let row = 5; row>= 3; row--) {
+//         for (let i = 0; i < 4; i++) {
+//             if (
+//             ((playArea[row][i] !== null)
+//             && (playArea[row][i] === playArea[row - 1][i + 1])
+//             && (playArea[row - 1][i + 1] === playArea[row - 2][i + 2])
+//             && (playArea[row - 2][i + 2] === playArea[row - 3][i + 3]))
+//             ||
+//             ((playArea[row][i] !== null)
+//             && (playArea[row][i] === playArea[row - 1][i - 1])
+//             && (playArea[row - 1][i - 1] === playArea[row - 2][i - 2])
+//             && (playArea[row - 2][i + 2] === playArea[row - 3][i - 3]))
+//             ) 
+//             console.log("diagonal true")
+//         }
+//     }
 // }
 
 // A grid position was clicked
