@@ -85,16 +85,16 @@ function drawBoard(playArea) {
 // Function to check for a winner   
 // WRITE A FUNCTION THAT CHECKS FOR 4 IN A ROW
 function checkWinner() {
-    // horizontalWin() // WORKING
-    // verticalWin() // WORKING
-    // diagonalRightWin() // WORKING
+    horizontalWin()
+    verticalWin()
+    diagonalRightWin()
     diagonalLeftWin()
 }
 // ref to id = "winDisp" to make it show when winner detected.
 // ref to id = "winner" to display winner in winDisp
 
 function horizontalWin() {
-    console.log("checking for horizontal win")
+    // console.log("checking for horizontal win")
     for (let row = 0; row < 6; row++) {
         for (let i = 0; i < 4; i++) {
             if (
@@ -108,6 +108,7 @@ function horizontalWin() {
 }
 
 function verticalWin() {
+    // console.log("checking for vertical win")
     for (let row = 5; row >= 3; row--) {
         for (let i = 0; i < 4; i++) {
             if (
@@ -121,6 +122,7 @@ function verticalWin() {
 }
 
 function diagonalRightWin() {
+    // console.log("checking for RH diagonal win")
     for (let row = 5; row >= 3; row--) {
         for (let i = 0; i < 4; i++) {
             if (
@@ -134,28 +136,18 @@ function diagonalRightWin() {
 }
 
 function diagonalLeftWin() {
-    for
+    // console.log("checking for LH digonal win")
+    for (let row = 5; row >=3; row--) {
+        for (let i = 6; i >= 3 ; i--) {
+            if (
+                (playArea[row][i] !== null)
+                && (playArea[row][i] === playArea[row - 1][i - 1])
+                && (playArea[row - 1][i - 1] === playArea[row - 2][i - 2])
+                && (playArea[row - 2][i - 2] === playArea[row - 3][i - 3])
+            ) console.log("left diagonal win detected")
+        }
+    }
 }
-
-// function checks both diagonals?
-// function diagonalWin() {
-//     for (let row = 5; row>= 3; row--) {
-//         for (let i = 0; i < 4; i++) {
-//             if (
-//             ((playArea[row][i] !== null)
-//             && (playArea[row][i] === playArea[row - 1][i + 1])
-//             && (playArea[row - 1][i + 1] === playArea[row - 2][i + 2])
-//             && (playArea[row - 2][i + 2] === playArea[row - 3][i + 3]))
-//             ||
-//             ((playArea[row][i] !== null)
-//             && (playArea[row][i] === playArea[row - 1][i - 1])
-//             && (playArea[row - 1][i - 1] === playArea[row - 2][i - 2])
-//             && (playArea[row - 2][i + 2] === playArea[row - 3][i - 3]))
-//             ) 
-//             console.log("diagonal true")
-//         }
-//     }
-// }
 
 // A grid position was clicked
 function positionClick(columnIndex, event) {
